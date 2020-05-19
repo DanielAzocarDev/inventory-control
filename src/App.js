@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import AddItem from "./components/additem/AddItem";
-import Item from "./components/item/Item";
 import ItemList from "./components/itemlist/ItemList";
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  const addItem = (i) => {
+    setItems([...items, i]);
+    console.log(items);
+  };
   return (
     <div className="container">
       <div className="form-container">
-        <AddItem />
+        <AddItem addItem={addItem} />
       </div>
-      <ItemList />
+      <ItemList items={items} />
     </div>
   );
 }

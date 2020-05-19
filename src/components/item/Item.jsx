@@ -1,14 +1,14 @@
 import React from "react";
 import "./Item.scss";
 
-const Item = () => {
+const Item = ({ item }) => {
   return (
     <div className="item">
-      <h3>Title</h3>
+      <h3>{item.title}</h3>
       <div>
-        <p>Some text</p>
-        <p>Some text</p>
-        <p>Some text</p>
+        <p>{item.price}</p>
+        <p>{item.cost}</p>
+        <p>{item.units}</p>
       </div>
       <div className="item-btns">
         <button>Delete</button>
