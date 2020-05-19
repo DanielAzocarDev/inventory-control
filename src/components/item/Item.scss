@@ -1,0 +1,12 @@
+.item {
+  max-width: 150px;
+  background: #6495ed;
+  padding: 10px;
+  h3 {
+    margin: 0;
+  }
+  .item-btns {
+    display: flex;
+    justify-content: space-between;
+  }
+}
