@@ -3,7 +3,7 @@ import "./AddItem.scss";
 
 const AddItem = () => {
   return (
-    <form>
+    <form className="form">
       <label htmlFor="title">Title</label>
       <input type="text" id="title" />
       <label htmlFor="price">Price</label>
