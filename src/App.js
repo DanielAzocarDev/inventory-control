@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import AddItem from "./components/additem/AddItem";
 import Item from "./components/item/Item";
+import ItemList from "./components/itemlist/ItemList";
 
 function App() {
   return (
@@ -9,13 +10,7 @@ function App() {
       <div className="form-container">
         <AddItem />
       </div>
-      <div className="item-list">
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-        <Item />
-      </div>
+      <ItemList />
     </div>
   );
 }
