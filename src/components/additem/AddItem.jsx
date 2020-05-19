@@ -26,8 +26,10 @@ const AddItem = ({ addItem }) => {
     // Evita el behavior default de form al hacer submit
     e.preventDefault();
 
+    // Function pasada como props que envia item al state global
     addItem(item);
 
+    // Restaura values de inputs a ""
     setItem({
       title: "",
       price: "",
