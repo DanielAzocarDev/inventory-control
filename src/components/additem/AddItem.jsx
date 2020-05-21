@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuid } from "uuid";
 import "./AddItem.scss";
 
 const AddItem = ({ addItem }) => {
@@ -18,6 +19,7 @@ const AddItem = ({ addItem }) => {
       ...item,
       // Es para iterar y crear los keys y values del objeto en relacion al id y values de los inputs
       [e.target.id]: e.target.value,
+      id: uuid(),
     });
   };
 
