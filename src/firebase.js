@@ -1,4 +1,4 @@
-export default firebaseConfig = {
+export default {
   apiKey: "AIzaSyCKfaNfItB6Mu3Sx7duzf0hk03Ri4a7A5s",
   authDomain: "sells-project.firebaseapp.com",
   databaseURL: "https://sells-project.firebaseio.com",

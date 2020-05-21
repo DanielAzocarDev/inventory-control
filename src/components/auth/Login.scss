@@ -1,0 +1,40 @@
+.login-form {
+  width: 220px;
+  background: #6495ed;
+  border-radius: 3px;
+  padding: 10px;
+  margin: auto;
+
+  &label,
+  input {
+    margin-bottom: 5px;
+  }
+
+  label {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+  input {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+  }
+
+  button {
+    width: 100%;
+    background: #8fb6fd;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+      background: #557eca;
+    }
+  }
+}
