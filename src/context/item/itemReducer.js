@@ -16,7 +16,7 @@ export default (state, action) => {
     case ADD_ITEM:
       return {
         ...state,
-        item: [...state.item, action.payload],
+        items: [...state.items, action.payload],
       };
     // Borrar item
     case DELETE_ITEM:

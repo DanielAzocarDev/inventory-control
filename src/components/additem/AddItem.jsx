@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { v4 as uuid } from "uuid";
+import React, { useState, useContext } from "react";
+import ItemContext from "../../context/item/itemContext";
 import "./AddItem.scss";
 
-const AddItem = ({ addItem }) => {
+const AddItem = () => {
+  // Inicializamos ItemContext dentro de itemContext
+  const itemContext = useContext(ItemContext);
   // Tener cuidado no confundir [] con {}, los que se usan son []
   const [item, setItem] = useState({
     title: "",
@@ -19,7 +21,6 @@ const AddItem = ({ addItem }) => {
       ...item,
       // Es para iterar y crear los keys y values del objeto en relacion al id y values de los inputs
       [e.target.id]: e.target.value,
-      id: uuid(),
     });
   };
 
@@ -29,7 +30,7 @@ const AddItem = ({ addItem }) => {
     e.preventDefault();
 
     // Function pasada como props que envia item al state global
-    addItem(item);
+    itemContext.addItem(item);
 
     // Restaura values de inputs a ""
     setItem({

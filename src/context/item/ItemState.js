@@ -39,8 +39,31 @@ const ItemState = ({ children }) => {
     dispatch({ type: DELETE_ITEM, payload: id });
   };
 
+  const unitsTotal = state.items.reduce(
+    (totalUnits, items) => totalUnits + parseInt(items.units),
+    0
+  );
+
+  const incomesTotal = state.items.reduce(
+    (totalIncomes, items) => totalIncomes + parseInt(items.price),
+    0
+  );
+
+  const costsTotal = state.items.reduce(
+    (totalCosts, items) => totalCosts + parseInt(items.cost),
+    0
+  );
   return (
-    <ItemContext.Provider value={{ items: state.items, addItem, deleteItem }}>
+    <ItemContext.Provider
+      value={{
+        items: state.items,
+        addItem,
+        deleteItem,
+        unitsTotal,
+        incomesTotal,
+        costsTotal,
+      }}
+    >
       {children}
     </ItemContext.Provider>
   );

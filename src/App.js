@@ -8,20 +8,24 @@ import Navbar from "./components/navbar/Navbar";
 import LogIn from "./components/auth/LogIn";
 import SignUp from "./components/auth/SignUp";
 
+import ItemState from "./context/item/ItemState";
+
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/login" component={LogIn} />
-          <Route path="/signup" component={SignUp} />
-        </Switch>
-      </div>
-    </Router>
+    <ItemState>
+      <Router>
+        <Navbar />
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/login" component={LogIn} />
+            <Route path="/signup" component={SignUp} />
+          </Switch>
+        </div>
+      </Router>
+    </ItemState>
   );
 }
 

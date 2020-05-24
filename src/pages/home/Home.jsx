@@ -1,33 +1,12 @@
-import React, { useState } from "react";
-
+import React, { useContext } from "react";
+import ItemContext from "../../context/item/itemContext";
 import AddItem from "../../components/additem/AddItem";
 import ItemList from "../../components/itemlist/ItemList";
 import TotalDisplay from "../../components/totaldisplay/TotalDisplay";
 
 const Home = () => {
-  // Global state del App
-  const [items, setItems] = useState([]);
-
-  // Agrega item del AddItem form al global state
-  const addItem = (i) => {
-    setItems([...items, i]);
-    console.log(items);
-  };
-
-  const unitsTotal = items.reduce(
-    (totalUnits, items) => totalUnits + parseInt(items.units),
-    0
-  );
-
-  const incomesTotal = items.reduce(
-    (totalIncomes, items) => totalIncomes + parseInt(items.price),
-    0
-  );
-
-  const costsTotal = items.reduce(
-    (totalCosts, items) => totalCosts + parseInt(items.cost),
-    0
-  );
+  const itemContext = useContext(ItemContext);
+  const { incomesTotal, unitsTotal, costsTotal } = itemContext;
 
   return (
     <div className="container">
@@ -37,9 +16,9 @@ const Home = () => {
           <TotalDisplay title="cost" numb={costsTotal} />
           <TotalDisplay title="units" numb={unitsTotal} />
         </div>
-        <AddItem addItem={addItem} />
+        <AddItem />
       </div>
-      <ItemList items={items} />
+      <ItemList />
     </div>
   );
 };
