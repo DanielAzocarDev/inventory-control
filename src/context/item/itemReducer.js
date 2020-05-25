@@ -24,6 +24,16 @@ export default (state, action) => {
         ...state,
         items: state.items.filter((item) => action.payload !== item.id),
       };
+    case SET_CURRENT:
+      return {
+        ...state,
+        current: action.payload,
+      };
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null,
+      };
     default:
       return state;
   }

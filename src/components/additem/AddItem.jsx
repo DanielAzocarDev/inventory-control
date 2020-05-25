@@ -5,6 +5,7 @@ import "./AddItem.scss";
 const AddItem = () => {
   // Inicializamos ItemContext dentro de itemContext
   const itemContext = useContext(ItemContext);
+  const { addItem } = itemContext;
   // Tener cuidado no confundir [] con {}, los que se usan son []
   const [item, setItem] = useState({
     title: "",
@@ -30,7 +31,7 @@ const AddItem = () => {
     e.preventDefault();
 
     // Function pasada como props que envia item al state global
-    itemContext.addItem(item);
+    addItem(item);
 
     // Restaura values de inputs a ""
     setItem({

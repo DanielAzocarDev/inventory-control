@@ -22,6 +22,7 @@ const ItemState = ({ children }) => {
   // Creamos el estado inicial
   const initialState = {
     items: [],
+    current: null,
   };
 
   // useReducer extraemos 2 cosas state y dispatch, tambien recibe 2 parametros el reducer que creamos e importamos y el initialState
@@ -48,6 +49,16 @@ const ItemState = ({ children }) => {
     // dispatch es una funcion que recibe un objeto con el type y el payload
     dispatch({ type: DELETE_ITEM, payload: id });
   };
+  // Set Current
+  const setCurrent = (item) => {
+    // dispatch es una funcion que recibe un objeto con el type y el payload
+    dispatch({ type: SET_CURRENT, payload: item });
+  };
+  // Clear Current
+  const clearCurrent = () => {
+    // dispatch es una funcion que recibe un objeto con el type y el payload
+    dispatch({ type: CLEAR_CURRENT });
+  };
 
   const unitsTotal = state.items.reduce(
     (totalUnits, items) => totalUnits + parseInt(items.units),
@@ -67,8 +78,11 @@ const ItemState = ({ children }) => {
     <ItemContext.Provider
       value={{
         items: state.items,
+        current: state.current,
         addItem,
         deleteItem,
+        setCurrent,
+        clearCurrent,
         unitsTotal,
         incomesTotal,
         costsTotal,
