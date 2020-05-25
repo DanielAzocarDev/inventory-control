@@ -1,5 +1,5 @@
 // Importamos react y useReducer
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 // Import de context
 import ItemContext from "./itemContext";
 // Import itemReducer
@@ -25,7 +25,17 @@ const ItemState = ({ children }) => {
   };
 
   // useReducer extraemos 2 cosas state y dispatch, tambien recibe 2 parametros el reducer que creamos e importamos y el initialState
-  const [state, dispatch] = useReducer(itemReducer, initialState);
+  const [state, dispatch] = useReducer(itemReducer, initialState, () => {
+    // Contante para alojar localStorage
+    const localData = localStorage.getItem("state");
+    //Operador ternario para ver si existe data en el localStorage
+    return localData ? JSON.parse(localData) : initialState;
+  });
+
+  // Escucha y actualiza el localStorage cuando el state cambia
+  useEffect(() => {
+    localStorage.setItem("state", JSON.stringify(state));
+  }, [state]);
 
   // Add Item
   const addItem = (item) => {
