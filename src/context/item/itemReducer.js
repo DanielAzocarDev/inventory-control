@@ -34,6 +34,13 @@ export default (state, action) => {
         ...state,
         current: null,
       };
+    case UPDATE_ITEM:
+      return {
+        ...state,
+        items: state.items.map((item) =>
+          item.id === action.payload.id ? action.payload : item
+        ),
+      };
     default:
       return state;
   }

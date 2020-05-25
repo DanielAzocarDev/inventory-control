@@ -59,6 +59,11 @@ const ItemState = ({ children }) => {
     // dispatch es una funcion que recibe un objeto con el type y el payload
     dispatch({ type: CLEAR_CURRENT });
   };
+  // Clear Current
+  const updateItem = (item) => {
+    // dispatch es una funcion que recibe un objeto con el type y el payload
+    dispatch({ type: UPDATE_ITEM, payload: item });
+  };
 
   const unitsTotal = state.items.reduce(
     (totalUnits, items) => totalUnits + parseInt(items.units),
@@ -81,6 +86,7 @@ const ItemState = ({ children }) => {
         current: state.current,
         addItem,
         deleteItem,
+        updateItem,
         setCurrent,
         clearCurrent,
         unitsTotal,

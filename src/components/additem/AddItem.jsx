@@ -1,11 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ItemContext from "../../context/item/itemContext";
 import "./AddItem.scss";
 
 const AddItem = () => {
   // Inicializamos ItemContext dentro de itemContext
   const itemContext = useContext(ItemContext);
-  const { addItem } = itemContext;
+  const { addItem, updateItem, clearCurrent, current } = itemContext;
+
   // Tener cuidado no confundir [] con {}, los que se usan son []
   const [item, setItem] = useState({
     title: "",
@@ -13,6 +14,19 @@ const AddItem = () => {
     cost: "",
     units: "",
   });
+
+  useEffect(() => {
+    if (current !== null) {
+      setItem(current);
+    } else {
+      setItem({
+        title: "",
+        price: "",
+        cost: "",
+        units: "",
+      });
+    }
+  }, [itemContext, current]);
 
   // Funcion para manejas cambios en los inputs y guardarlos en el state(item)
   const handlerChange = (e) => {
@@ -29,9 +43,12 @@ const AddItem = () => {
   const handlerSubmit = (e) => {
     // Evita el behavior default de form al hacer submit
     e.preventDefault();
-
-    // Function pasada como props que envia item al state global
-    addItem(item);
+    if (current === null) {
+      // Function pasada como props que envia item al state global
+      addItem(item);
+    } else {
+      updateItem(item);
+    }
 
     // Restaura values de inputs a ""
     setItem({
@@ -42,8 +59,13 @@ const AddItem = () => {
     });
   };
 
+  const clearAll = () => {
+    clearCurrent();
+  };
+
   return (
     <form className="form" onSubmit={handlerSubmit}>
+      <h3>{current ? "Edit Item" : "Add Item"}</h3>
       <label htmlFor="title">Title</label>
       <input
         type="text"
@@ -72,7 +94,17 @@ const AddItem = () => {
         onChange={handlerChange}
         value={item.units}
       />
-      <button>Create!</button>
+      <button>{current ? "Update!" : "Create!"}</button>
+      {current && (
+        <div>
+          <button
+            style={{ width: "100%", marginTop: "10px" }}
+            onClick={clearAll}
+          >
+            Clear
+          </button>
+        </div>
+      )}
     </form>
   );
 };
