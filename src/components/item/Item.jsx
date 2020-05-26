@@ -16,14 +16,24 @@ const Item = ({ item }) => {
   return (
     <div className="item">
       <h3>{title}</h3>
-      <div>
-        <p>{price}</p>
-        <p>{cost}</p>
-        <p>{units}</p>
+      <div className="data-container">
+        <div>
+          <p>price</p>
+          <p>cost</p>
+          <p>units</p>
+        </div>
+        <div>
+          <p>{price}</p>
+          <p>{cost}</p>
+          <p>{units}</p>
+        </div>
       </div>
       <div className="item-btns">
-        <button onClick={onDelete}>Delete</button>
+        <button className="btn-delete" onClick={onDelete}>
+          Delete
+        </button>
         <button
+          className="btn-edit"
           onClick={() => {
             setCurrent(item);
           }}

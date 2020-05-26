@@ -72,6 +72,7 @@ const AddItem = () => {
         id="title"
         onChange={handlerChange}
         value={item.title}
+        required
       />
       <label htmlFor="price">Price</label>
       <input
@@ -79,6 +80,7 @@ const AddItem = () => {
         id="price"
         onChange={handlerChange}
         value={item.price}
+        required
       />
       <label htmlFor="cost">Cost</label>
       <input
@@ -86,6 +88,7 @@ const AddItem = () => {
         id="cost"
         onChange={handlerChange}
         value={item.cost}
+        required
       />
       <label htmlFor="units">Units</label>
       <input
@@ -93,6 +96,7 @@ const AddItem = () => {
         id="units"
         onChange={handlerChange}
         value={item.units}
+        required
       />
       <button>{current ? "Update!" : "Create!"}</button>
       {current && (

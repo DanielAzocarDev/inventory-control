@@ -1,20 +1,5 @@
 .display {
-  width: 120px;
-  height: 100px;
+  width: 110px;
   text-align: center;
-  padding: 10px;
-  background: #6495ed;
-  color: #fff;
-  border-radius: 2px;
-
-  &-title {
-    text-transform: uppercase;
-    margin: 3px 0;
-  }
-
-  &-numb {
-    font-size: 24px;
-    font-weight: bolder;
-    margin: 3px 0;
-  }
+  border: 1px solid red;
 }
