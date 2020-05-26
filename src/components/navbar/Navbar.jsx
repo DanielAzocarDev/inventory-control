@@ -8,7 +8,7 @@ import "./Navbar.scss";
 const Navbar = () => {
   return (
     <nav className="nav">
-      <div className="nav-container">
+      <div className="nav-wrapper">
         <Link to="/">
           <h1>Brand</h1>
         </Link>

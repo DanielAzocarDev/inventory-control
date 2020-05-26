@@ -98,10 +98,11 @@ const AddItem = () => {
         value={item.units}
         required
       />
-      <button>{current ? "Update!" : "Create!"}</button>
+      <button className="form-buttom">{current ? "Update!" : "Create!"}</button>
       {current && (
         <div>
           <button
+            className="clear-buttom"
             style={{ width: "100%", marginTop: "10px" }}
             onClick={clearAll}
           >

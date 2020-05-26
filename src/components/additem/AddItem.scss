@@ -1,7 +1,9 @@
 .form {
   width: 50%;
   padding: 20px;
-  border: 1px solid green;
+  box-shadow: 8px 6px 20px 2px #00000021;
+  border-radius: 6px;
+  //border: 1px solid green;
   h3 {
     text-align: center;
     margin: 0;
@@ -12,9 +14,33 @@
   }
   input {
     width: 100%;
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 3px 8px;
   }
   button {
     width: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 4px 0;
     margin-top: 15px;
+    cursor: pointer;
+  }
+
+  .form-buttom {
+    background: #2eb951;
+    box-shadow: 4px 3px 6px 1px rgba(46, 185, 81, 0.39);
+    &:hover {
+      background: #208d3b;
+    }
+  }
+
+  .clear-buttom {
+    background: #41bcf5;
+    box-shadow: 4px 3px 6px 1px rgba(65, 188, 245, 0.39);
+    &:hover {
+      background: #349ccc;
+    }
   }
 }

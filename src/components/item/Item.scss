@@ -4,9 +4,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background: #fff;
   padding: 10px 5px;
-  border-radius: 10px;
-  border: 1px solid orangered;
+  margin-right: 20px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  box-shadow: 4px 3px 10px 1px rgba(0, 0, 0, 0.129);
 
   h3 {
     text-align: center;

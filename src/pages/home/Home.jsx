@@ -14,9 +14,17 @@ const Home = () => {
     <div className="container">
       <div className="container-left">
         <div className="display-container">
-          <TotalDisplay title="income" numb={incomesTotal} />
-          <TotalDisplay title="cost" numb={costsTotal} />
-          <TotalDisplay title="units" numb={unitsTotal} />
+          <TotalDisplay
+            title="income"
+            numb={incomesTotal}
+            icon="fas fa-cash-register"
+          />
+          <TotalDisplay title="cost" numb={costsTotal} icon="fas fa-receipt" />
+          <TotalDisplay
+            title="units"
+            numb={unitsTotal}
+            icon="fas fa-dolly-flatbed"
+          />
         </div>
         <div className="container-form">
           <AddItem />

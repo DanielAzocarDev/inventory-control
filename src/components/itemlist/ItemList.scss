@@ -1,6 +1,8 @@
 .item-list {
-  width: 50%;
+  max-width: 50%;
+  height: auto;
   display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
   padding: 20px;
-  border: 1px solid purple;
 }

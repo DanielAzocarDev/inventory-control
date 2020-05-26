@@ -3,12 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
-import firebase from "./firebase";
-import { FirebaseAppProvider } from "reactfire";
+import ItemState from "./context/item/ItemState";
 
 ReactDOM.render(
-  <FirebaseAppProvider firebaseConfig={firebase}>
+  <ItemState>
     <App />
-  </FirebaseAppProvider>,
+  </ItemState>,
   document.getElementById("root")
 );
