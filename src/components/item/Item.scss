@@ -1,0 +1,17 @@
+.item {
+  width: 150px;
+  height: 220px;
+  background: #6495ed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0 10px;
+  h3 {
+    margin: 0;
+  }
+  .item-btns {
+    display: flex;
+    justify-content: space-between;
+  }
+}
