@@ -3,9 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
+import ItemState from "./context/item/ItemState";
+
 ReactDOM.render(
-  <React.StrictMode>
+  <ItemState>
     <App />
-  </React.StrictMode>,
+  </ItemState>,
   document.getElementById("root")
 );

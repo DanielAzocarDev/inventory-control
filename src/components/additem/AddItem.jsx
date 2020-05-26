@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import ItemContext from "../../context/item/itemContext";
 import "./AddItem.scss";
 
-const AddItem = ({ addItem }) => {
+const AddItem = () => {
+  // Inicializamos ItemContext dentro de itemContext
+  const itemContext = useContext(ItemContext);
+  const { addItem, updateItem, clearCurrent, current } = itemContext;
+
   // Tener cuidado no confundir [] con {}, los que se usan son []
   const [item, setItem] = useState({
     title: "",
@@ -9,6 +14,19 @@ const AddItem = ({ addItem }) => {
     cost: "",
     units: "",
   });
+
+  useEffect(() => {
+    if (current !== null) {
+      setItem(current);
+    } else {
+      setItem({
+        title: "",
+        price: "",
+        cost: "",
+        units: "",
+      });
+    }
+  }, [itemContext, current]);
 
   // Funcion para manejas cambios en los inputs y guardarlos en el state(item)
   const handlerChange = (e) => {
@@ -25,9 +43,12 @@ const AddItem = ({ addItem }) => {
   const handlerSubmit = (e) => {
     // Evita el behavior default de form al hacer submit
     e.preventDefault();
-
-    // Function pasada como props que envia item al state global
-    addItem(item);
+    if (current === null) {
+      // Function pasada como props que envia item al state global
+      addItem(item);
+    } else {
+      updateItem(item);
+    }
 
     // Restaura values de inputs a ""
     setItem({
@@ -38,14 +59,20 @@ const AddItem = ({ addItem }) => {
     });
   };
 
+  const clearAll = () => {
+    clearCurrent();
+  };
+
   return (
     <form className="form" onSubmit={handlerSubmit}>
+      <h3>{current ? "Edit Item" : "Add Item"}</h3>
       <label htmlFor="title">Title</label>
       <input
         type="text"
         id="title"
         onChange={handlerChange}
         value={item.title}
+        required
       />
       <label htmlFor="price">Price</label>
       <input
@@ -53,6 +80,7 @@ const AddItem = ({ addItem }) => {
         id="price"
         onChange={handlerChange}
         value={item.price}
+        required
       />
       <label htmlFor="cost">Cost</label>
       <input
@@ -60,6 +88,7 @@ const AddItem = ({ addItem }) => {
         id="cost"
         onChange={handlerChange}
         value={item.cost}
+        required
       />
       <label htmlFor="units">Units</label>
       <input
@@ -67,8 +96,20 @@ const AddItem = ({ addItem }) => {
         id="units"
         onChange={handlerChange}
         value={item.units}
+        required
       />
-      <button>Create!</button>
+      <button className="form-buttom">{current ? "Update!" : "Create!"}</button>
+      {current && (
+        <div>
+          <button
+            className="clear-buttom"
+            style={{ width: "100%", marginTop: "10px" }}
+            onClick={clearAll}
+          >
+            Clear
+          </button>
+        </div>
+      )}
     </form>
   );
 };

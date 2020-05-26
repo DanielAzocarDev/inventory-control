@@ -1,17 +1,51 @@
 .item {
-  width: 150px;
-  height: 220px;
-  background: #6495ed;
+  width: 120px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
-  margin: 0 10px;
+  background: #fff;
+  padding: 10px 5px;
+  margin-right: 20px;
+  margin-bottom: 25px;
+  border-radius: 4px;
+  box-shadow: 4px 3px 10px 1px rgba(0, 0, 0, 0.129);
+
   h3 {
+    text-align: center;
+    text-transform: capitalize;
     margin: 0;
   }
-  .item-btns {
-    display: flex;
+  .data-container {
+    display: inherit;
     justify-content: space-between;
+    p {
+      text-transform: capitalize;
+      margin: 0;
+    }
+  }
+  .item-btns {
+    display: inherit;
+    justify-content: space-between;
+    button {
+      border: none;
+      width: 45%;
+      color: #fff;
+      border-radius: 3px;
+      padding: 4px 0;
+      cursor: pointer;
+    }
+    .btn-delete {
+      background: #f54141;
+      &:hover {
+        background: #c93434;
+      }
+    }
+    .btn-edit {
+      background: #2eb951;
+      &:hover {
+        background: #208d3b;
+      }
+    }
   }
 }

@@ -1,18 +1,45 @@
-import React from "react";
+import React, { useContext } from "react";
+import ItemContext from "../../context/item/itemContext";
 import "./Item.scss";
 
 const Item = ({ item }) => {
+  const itemContext = useContext(ItemContext);
+
+  const { deleteItem, setCurrent, clearCurrent } = itemContext;
+  const { title, price, cost, units, id } = item;
+
+  const onDelete = () => {
+    deleteItem(id);
+    clearCurrent();
+  };
+
   return (
     <div className="item">
-      <h3>{item.title}</h3>
-      <div>
-        <p>{item.price}</p>
-        <p>{item.cost}</p>
-        <p>{item.units}</p>
+      <h3>{title}</h3>
+      <div className="data-container">
+        <div>
+          <p>price</p>
+          <p>cost</p>
+          <p>units</p>
+        </div>
+        <div>
+          <p>{price}</p>
+          <p>{cost}</p>
+          <p>{units}</p>
+        </div>
       </div>
       <div className="item-btns">
-        <button>Delete</button>
-        <button>Edit</button>
+        <button className="btn-delete" onClick={onDelete}>
+          Delete
+        </button>
+        <button
+          className="btn-edit"
+          onClick={() => {
+            setCurrent(item);
+          }}
+        >
+          Edit
+        </button>
       </div>
     </div>
   );
