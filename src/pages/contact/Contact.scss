@@ -1,0 +1,21 @@
+.contact-container {
+  max-width: 1200px;
+  margin: 25px auto;
+  h2 {
+    font-size: 32px;
+  }
+  p {
+    max-width: 600px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    a {
+      color: black;
+      text-decoration: none;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
