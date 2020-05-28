@@ -10,7 +10,7 @@ const Navbar = () => {
     <nav className="nav">
       <div className="nav-wrapper">
         <Link to="/">
-          <h1>Brand</h1>
+          <h1>Daniel's App</h1>
         </Link>
         <SignIn />
       </div>
