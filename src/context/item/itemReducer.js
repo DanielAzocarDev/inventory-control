@@ -4,6 +4,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_ITEM,
+  SELL_ITEM,
   FILTER_ITEMS,
   CLEAR_FILTER,
   SET_ALERT,
@@ -40,6 +41,11 @@ export default (state, action) => {
         items: state.items.map((item) =>
           item.id === action.payload.id ? action.payload : item
         ),
+      };
+    case SELL_ITEM:
+      return {
+        ...state,
+        sells: [...state.sells, action.payload],
       };
     default:
       return state;

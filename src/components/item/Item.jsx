@@ -5,7 +5,7 @@ import "./Item.scss";
 const Item = ({ item }) => {
   const itemContext = useContext(ItemContext);
 
-  const { deleteItem, setCurrent, clearCurrent } = itemContext;
+  const { deleteItem, sellItem, setCurrent, clearCurrent } = itemContext;
   const { title, price, cost, units, id } = item;
 
   const onDelete = () => {
@@ -13,10 +13,14 @@ const Item = ({ item }) => {
     clearCurrent();
   };
 
+  const onSell = () => {
+    sellItem(item);
+  };
+
   return (
     <div className="item">
       <h3>{title}</h3>
-      <div className="data-container">
+      <div className="data-container" onClick={onSell}>
         <div>
           <p>price</p>
           <p>cost</p>

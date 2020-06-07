@@ -6,6 +6,7 @@ import "./ItemList.scss";
 const ItemList = () => {
   const itemContext = useContext(ItemContext);
   const { items } = itemContext;
+
   return (
     <div className="item-list">
       {items.map((item) => {

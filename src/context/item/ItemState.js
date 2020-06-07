@@ -12,6 +12,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_ITEM,
+  SELL_ITEM,
   FILTER_ITEMS,
   CLEAR_FILTER,
   SET_ALERT,
@@ -22,6 +23,7 @@ const ItemState = ({ children }) => {
   // Creamos el estado inicial
   const initialState = {
     items: [],
+    sells: [],
     current: null,
   };
 
@@ -43,6 +45,11 @@ const ItemState = ({ children }) => {
     item.id = uuid();
     // dispatch es una funcion que recibe un objeto con el type y el payload
     dispatch({ type: ADD_ITEM, payload: item });
+  };
+  // Sells Items
+  const sellItem = (item) => {
+    // agrega un Item al Array de sells
+    dispatch({ type: SELL_ITEM, payload: item });
   };
   // Delete Item
   const deleteItem = (id) => {
@@ -79,19 +86,29 @@ const ItemState = ({ children }) => {
     (totalCosts, items) => totalCosts + parseInt(items.cost),
     0
   );
+
+  const sellsTotal = state.sells.reduce((totalSells, items) => {
+    let gains = parseInt(items.price) - parseInt(items.cost);
+
+    return (totalSells += gains);
+  }, 0);
+
   return (
     <ItemContext.Provider
       value={{
         items: state.items,
         current: state.current,
+        sells: state.sells,
         addItem,
         deleteItem,
         updateItem,
+        sellItem,
         setCurrent,
         clearCurrent,
         unitsTotal,
         incomesTotal,
         costsTotal,
+        sellsTotal,
       }}
     >
       {children}

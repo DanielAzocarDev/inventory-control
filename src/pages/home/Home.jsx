@@ -8,12 +8,13 @@ import "./Home.scss";
 
 const Home = () => {
   const itemContext = useContext(ItemContext);
-  const { incomesTotal, unitsTotal, costsTotal } = itemContext;
+  const { incomesTotal, unitsTotal, costsTotal, sellsTotal } = itemContext;
 
   return (
     <div className="container">
       <div className="container-left">
         <div className="display-container">
+          {sellsTotal}
           <TotalDisplay
             title="income"
             numb={incomesTotal}
