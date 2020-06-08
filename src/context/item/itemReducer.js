@@ -45,6 +45,11 @@ export default (state, action) => {
     case SELL_ITEM:
       return {
         ...state,
+        items: state.items.map((item) =>
+          item.id === action.payload.id
+            ? { ...action.payload, units: parseInt(action.payload.units) - 1 }
+            : item
+        ),
         sells: [...state.sells, action.payload],
       };
     default:
