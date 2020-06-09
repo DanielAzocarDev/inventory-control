@@ -23,6 +23,7 @@ const ItemState = ({ children }) => {
   // Creamos el estado inicial
   const initialState = {
     items: [],
+    itemsTotals: [],
     sells: [],
     current: null,
   };
@@ -77,15 +78,16 @@ const ItemState = ({ children }) => {
     0
   );
 
-  const incomesTotal = state.items.reduce(
-    (totalIncomes, items) => totalIncomes + parseInt(items.price),
-    0
-  );
+  const incomesTotal = state.itemsTotals.reduce((totalIncomes, i) => {
+    const units = (parseInt(i.price) - parseInt(i.cost)) * parseInt(i.units);
 
-  const costsTotal = state.items.reduce(
-    (totalCosts, items) => totalCosts + parseInt(items.cost),
-    0
-  );
+    return totalIncomes + units;
+  }, 0);
+
+  const costsTotal = state.itemsTotals.reduce((totalCosts, i) => {
+    const costs = parseInt(i.cost) * parseInt(i.units);
+    return totalCosts + costs;
+  }, 0);
 
   const sellsTotal = state.sells.reduce((totalSells, items) => {
     let gains = parseInt(items.price) - parseInt(items.cost);

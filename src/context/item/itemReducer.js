@@ -18,6 +18,7 @@ export default (state, action) => {
       return {
         ...state,
         items: [...state.items, action.payload],
+        itemsTotals: [...state.itemsTotals, action.payload],
       };
     // Borrar item
     case DELETE_ITEM:
@@ -45,7 +46,9 @@ export default (state, action) => {
     case SELL_ITEM:
       return {
         ...state,
+        // map de items para buscar el item con la id que coincide con el id del payload
         items: state.items.map((item) =>
+          // Operador ternario verifica que el id coincide, si es asi se hace una destructuracion de payload y se le asigna un nuevo valor a units que cambia cada vez que se hace una venta
           item.id === action.payload.id
             ? { ...action.payload, units: parseInt(action.payload.units) - 1 }
             : item
