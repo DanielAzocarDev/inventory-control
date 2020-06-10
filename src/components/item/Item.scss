@@ -10,6 +10,7 @@
   margin-bottom: 25px;
   border-radius: 4px;
   box-shadow: 4px 3px 10px 1px rgba(0, 0, 0, 0.129);
+  box-sizing: border-box;
 
   h3 {
     text-align: center;
@@ -47,6 +48,12 @@
         background: #208d3b;
       }
     }
+  }
+}
+
+@media (max-width: 881px) {
+  .item {
+    margin-right: 15px;
   }
 }
 

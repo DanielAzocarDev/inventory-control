@@ -5,6 +5,7 @@
   margin: auto;
   box-shadow: 8px 6px 12px 1px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+  box-sizing: border-box;
   //border: 1px solid green;
   h3 {
     text-align: center;
@@ -19,6 +20,7 @@
     border: none;
     border-bottom: 1px solid grey;
     padding: 3px 8px;
+    box-sizing: border-box;
     outline: none;
   }
   button {
