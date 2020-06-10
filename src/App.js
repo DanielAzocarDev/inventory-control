@@ -7,6 +7,7 @@ import Contact from "./pages/contact/Contact";
 import Navbar from "./components/navbar/Navbar";
 import LogIn from "./components/auth/LogIn";
 import SignUp from "./components/auth/SignUp";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" component={SignUp} />
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 }

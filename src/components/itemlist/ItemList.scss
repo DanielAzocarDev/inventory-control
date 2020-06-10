@@ -1,8 +1,9 @@
 .item-list {
   max-width: 50%;
-  height: auto;
+  height: 100%;
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 0 20px;
+  overflow-y: scroll;
 }

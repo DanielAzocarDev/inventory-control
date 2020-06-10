@@ -1,8 +1,10 @@
 .nav {
   width: 100%;
   height: 70px;
-  background: #fff;
+  background: #60be60;
   box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.129);
+  position: relative;
+  z-index: 1;
   &-wrapper {
     max-width: 1200px;
     height: 100%;
@@ -13,6 +15,7 @@
     margin: 0 auto;
     h1 {
       margin: 0;
+      color: #fff;
       &:hover {
         font-weight: bolder;
       }
@@ -30,7 +33,7 @@
 
     a {
       text-decoration: none;
-      color: #2c2c2c;
+      color: #fff;
       &:hover {
         font-weight: 600;
       }

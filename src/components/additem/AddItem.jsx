@@ -48,6 +48,7 @@ const AddItem = () => {
       addItem(item);
     } else {
       updateItem(item);
+      clearCurrent();
     }
 
     // Restaura values de inputs a ""
