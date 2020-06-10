@@ -1,8 +1,19 @@
 .item-list {
-  max-width: 50%;
-  height: auto;
+  width: 50%;
+  height: 100%;
   display: flex;
-  align-content: flex-start;
+  align-items: flex-start;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 0 20px;
+  overflow-y: scroll;
+}
+
+@media (max-width: 630px) {
+  .item-list {
+    width: 100%;
+    height: 200px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
 }

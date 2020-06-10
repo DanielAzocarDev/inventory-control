@@ -3,7 +3,13 @@
 }
 
 .App {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  width: 100%;
+  height: 82vh;
+  background: #7eda7e;
+}
+
+@media (max-width: 680px) {
+  .App {
+    height: auto;
+  }
 }

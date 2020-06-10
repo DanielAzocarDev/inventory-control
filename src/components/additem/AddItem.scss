@@ -1,7 +1,9 @@
 .form {
-  width: 50%;
+  width: 260px;
+  background: #fff;
   padding: 20px;
-  box-shadow: 8px 6px 20px 2px #00000021;
+  margin: auto;
+  box-shadow: 8px 6px 12px 1px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   //border: 1px solid green;
   h3 {
@@ -17,6 +19,7 @@
     border: none;
     border-bottom: 1px solid grey;
     padding: 3px 8px;
+    outline: none;
   }
   button {
     width: 100%;
@@ -42,5 +45,10 @@
     &:hover {
       background: #349ccc;
     }
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
   }
 }
