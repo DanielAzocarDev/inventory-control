@@ -1,5 +1,6 @@
 .container {
   max-width: 1200px;
+  height: 100%;
   margin: 0 auto;
 
   .display-container {
@@ -13,7 +14,7 @@
 
   .inventory {
     width: 100%;
-    height: 410px;
+    height: 100%;
     display: flex;
     padding: 35px 0;
     overflow-y: hidden;
@@ -32,6 +33,9 @@
       flex-wrap: wrap;
       padding: 20px 50px;
       box-sizing: content-box;
+    }
+    .inventory {
+      // overflow-x: hidden;
     }
   }
 
