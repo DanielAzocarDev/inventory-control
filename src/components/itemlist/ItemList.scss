@@ -8,12 +8,19 @@
   overflow-y: scroll;
 }
 
+@media (max-width: 881px) {
+  .item-list {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 630px) {
   .item-list {
     width: 90%;
     height: 220px;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: start;
     align-items: center;
     margin: 0 auto;
     padding: 0;

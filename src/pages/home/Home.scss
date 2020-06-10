@@ -24,18 +24,15 @@
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 755px) {
   .container {
     .display-container {
       display: flex;
       height: auto;
-      align-content: flex-start;
+      align-items: center;
       flex-wrap: wrap;
       padding: 20px 50px;
       box-sizing: content-box;
-    }
-    .inventory {
-      // overflow-x: hidden;
     }
   }
 
@@ -53,6 +50,20 @@
       &-add {
         width: 100%;
       }
+    }
+  }
+}
+
+@media (max-width: 562px) {
+  .container {
+    .display-container {
+      height: 180px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: start;
+      align-items: center;
+      padding: 20px 0;
+      overflow-x: scroll;
     }
   }
 }
