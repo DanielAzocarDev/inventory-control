@@ -1,21 +1,19 @@
 .container {
   max-width: 1200px;
-  height: 100vh;
-  display: flex;
   margin: 0 auto;
-  &-left {
-    width: 50%;
-    .display-container {
-      height: 180px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
+
+  .display-container {
+    height: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  &-form {
+  .inventory {
+    width: 100vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    &-add {
+      width: 50%;
+    }
   }
 }
